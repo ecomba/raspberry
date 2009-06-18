@@ -12,9 +12,11 @@ describe Login do
 
     twitter_client = mock('twitter_client')
     Twitter::Base.should_receive(:new).with("username", "password").and_return(twitter_client)
-    
+    @scene.should_receive(:load).with("main")
     login = @scene.find('login')
     login.should_not be_nil
     login.button_pressed(nil)
+
+    @scene.production.twitter.should_not be nil
   end
 end

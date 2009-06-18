@@ -5,10 +5,8 @@ module Login
   prop_reader :password
   
   def button_pressed(event)
-    twitter = Twitter::Base.new(username.text, password.text)
-    twitter.timeline.each do |status|
-      puts "#{status.user} says #{status.text}"
-    end
+    @scene.production.twitter = Twitter::Base.new(username.text, password.text)
+    scene.load("main")
   end
   
 end

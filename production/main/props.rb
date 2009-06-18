@@ -1,0 +1,1 @@
+tweets :id => "tweets", :text => "Hello Twitter"
