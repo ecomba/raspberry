@@ -1,13 +1,15 @@
-the_login {
+input_container {
   width "100%"
-  height "100%"
-  background_color :green
+  horizontal_alignment :center
+
 }
 
 username {
   width 50
 }
 
-blah {
-  width 50
+label {
+  vertical_alignment :center
+  width 130
+  font_size 18
 }
