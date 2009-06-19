@@ -13,9 +13,13 @@ describe Main do
   uses_scene :main
   
   it "should show tweets" do
-    @scene.find("tweet_1").children[0].text.should == "@twitter_user: "
+    @scene.find("tweet_1").children[0].children[0].text.should == "@twitter_user: "
     @scene.find("tweet_1").children[1].text.should == "Tweet One"
     @scene.find("tweet_1").name.should == "tweet"
+  end
+  
+  it "should have a retweet button" do
+    @scene.find("tweet_1").children[0].children[1].text.should == "RT"
   end
   
   it "should have a text field and button for a new tweet" do

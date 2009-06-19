@@ -20,10 +20,21 @@ tweet_style {
   font_size "14"
 }
 
+tweet_nest {
+  width "20%"
+}
+
 tweet_username {
   extends :tweet_style
   text_color "8CC63F"
-  width "20%"
+  width "100%"
+}
+
+retweet {
+  extends :tweet_username
+  hover {
+    text_color "ACA65F"
+  }
 }
 
 tweet_text {

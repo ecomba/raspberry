@@ -3,10 +3,15 @@ module Tweets
   def update
     self.remove_all
     scene.production.twitter.timeline.each_with_index do |status, index|
-      tweet_prop = Limelight::Prop.new(:id => "tweet_#{index + 1}", :name => "tweet")
-      tweet_prop << Limelight::Prop.new(:name => "tweet_username", :text => "@#{status.user.screen_name}: ")
-      tweet_prop << Limelight::Prop.new(:name => "tweet_text", :text => status.text)
-      self << tweet_prop
+      self.build do
+        tweet :id => "tweet_#{index + 1}", :tweet => status do
+          tweet_nest do 
+            tweet_username :text => "@#{status.user.screen_name}: "
+            retweet :text => "RT"
+          end
+          tweet_text :text => status.text
+        end
+      end
     end
   end  
 
