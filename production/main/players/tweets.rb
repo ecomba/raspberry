@@ -8,6 +8,7 @@ module Tweets
           tweet_nest do 
             tweet_username :text => "@#{status.user.screen_name}: "
             retweet :text => "RT"
+            reply :text => "reply"
           end
           tweet_text :text => status.text
         end

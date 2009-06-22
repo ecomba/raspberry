@@ -37,6 +37,13 @@ retweet {
   }
 }
 
+reply {
+  extends :tweet_username
+  hover {
+    text_color "ACA65F"
+  }
+}
+
 tweet_text {
   extends :tweet_style
   width "80%"

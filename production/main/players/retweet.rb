@@ -1,11 +1,8 @@
 module Retweet
+  include TweetExtras
   
-  def tweet
-    return parent.parent.tweet
-  end
-  
-  def mouse_clicked(e)
-    scene.new_tweet.text = "RT @#{tweet.user.screen_name}: #{tweet.text}"
+  def update_tweet_box
+    "RT @#{tweet.user.screen_name}: #{tweet.text}"
   end
   
 end

@@ -10,6 +10,7 @@ production = Limelight::Production["Raspberry"]
 
 # Require any source code that will be used by the production.
 #require 'seomthing'
+require 'lib/tweet_extras'
 
 # This is the ideal place to assign values to production attributes.
 #production.something = MySource::Something.new
