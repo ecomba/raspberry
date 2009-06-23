@@ -3,14 +3,14 @@
 
 # If your production is using external ruby source code that will be required in player modules, you may
 # add the path to $: here.
-#$: << File.expand_path(File.dirname(__FILE__) + "/lib")
+$: << File.expand_path(File.dirname(__FILE__) + "/lib")
 
 # Acquires a reference to the production.
 production = Limelight::Production["Raspberry"]
 
 # Require any source code that will be used by the production.
 #require 'seomthing'
-require 'lib/tweet_extras'
+require 'tweet_extras'
 
 # This is the ideal place to assign values to production attributes.
 #production.something = MySource::Something.new
