@@ -10,7 +10,10 @@ describe Login do
     @scene.find('password').text = 'password'
 
     twitter_client = mock('twitter_client')
-    Twitter::Base.should_receive(:new).with("username", "password").and_return(twitter_client)
+    oauth = mock('oauth')
+    Twitter::OAuth.should_receive(:new).with("pMe6T7StYDu0Khwg9FlHgQ", "RtnXrHIfRbiqOkpXinAK3mRo1T5m1jPAwwkOsZBjwA").and_return(oauth)
+    oauth.should_receive(:authorize_from_access).with(@scene.find('username').text, @scene.find('password').text)
+    Twitter::Base.should_receive(:new).with(oauth).and_return(twitter_client)
     @scene.should_receive(:load).with("main")
     login = @scene.find('login')
     login.should_not be_nil
