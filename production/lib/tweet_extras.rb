@@ -1,4 +1,5 @@
 module TweetExtras
+
   module ClassMethods
     
   end
@@ -17,4 +18,5 @@ module TweetExtras
     receiver.extend         ClassMethods
     receiver.send :include, InstanceMethods
   end
+  
 end
