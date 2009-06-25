@@ -2,7 +2,7 @@ module Tweets
 
   def update
     self.remove_all
-    scene.production.twitter.timeline.each_with_index do |status, index|
+    scene.production.twitter.friends_timeline.each_with_index do |status, index|
       self.build do
         tweet :id => "tweet_#{index + 1}", :tweet => status do
           tweet_nest do 

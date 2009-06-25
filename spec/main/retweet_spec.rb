@@ -6,7 +6,7 @@ describe Main do
     user = mock("User", :screen_name => "twitter_user")
     status1 = mock('Status1', :text => "Tweet One", :user => user)
     status2 = mock('Status2', :text => "Tweet Two", :user => user)
-    @twitter_client = mock(Twitter::Base, :timeline => [status1, status2])
+    @twitter_client = mock(Twitter::Base, :friends_timeline => [status1, status2])
     producer.production.twitter = @twitter_client
   end
   

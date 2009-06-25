@@ -5,7 +5,7 @@ describe Main do
   before(:each) do
     user = mock("User", :screen_name => "twitter_user")
     status = mock('Status', :text => "Tweet One", :user => user)
-    @twitter_client = mock(Twitter::Base, :timeline => [status])
+    @twitter_client = mock(Twitter::Base, :friends_timeline => [status])
     producer.production.twitter = @twitter_client
   end
   
@@ -32,14 +32,14 @@ describe Main do
   end
   
   it "should tweet" do
-    @twitter_client.should_receive(:post).with("Hello, world.")
+    @twitter_client.should_receive(:update).with("Hello, world.")
 
     @scene.find("new_tweet").text = "Hello, world."
     @scene.find("post_tweet").button_pressed(nil)    
   end
   
   it "should clear text after successfully tweeting" do
-    @twitter_client.stub!(:post)
+    @twitter_client.stub!(:update)
     @scene.find("new_tweet").text = "Hello, world."
     @scene.find("post_tweet").button_pressed(nil)
     
@@ -47,7 +47,7 @@ describe Main do
   end
   
   it "should update tweets when you tweet" do
-    @twitter_client.stub!(:post)
+    @twitter_client.stub!(:update)
     @scene.find("new_tweet").text = "Hello, world."
     prop = mock(Limelight::Prop)
     prop.should_receive(:update)
